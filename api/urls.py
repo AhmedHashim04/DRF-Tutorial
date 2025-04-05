@@ -16,8 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
-from .views import product_operations
+from .views import ProductOperationsAPIView , ProductListAPIView
 
 urlpatterns = [
-     path('<int:id>' , product_operations , name='product_list')
+     path('' , ProductListAPIView.as_view()),
+     path('<int:id>' , ProductOperationsAPIView.as_view() , name='product_list')
 ]
